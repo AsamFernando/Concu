@@ -1,7 +1,7 @@
 import threading
 import time
 import logging
-from tiempo import Contador
+from dormilones import Contador
 
 
 logging.basicConfig(format='%(asctime)s.%(msecs)03d [%(threadName)s] - %(message)s', datefmt='%H:%M:%S', level=logging.INFO)
@@ -19,7 +19,7 @@ logging.info('creando threads')
 
 threadList=[]
 
-for i in range(10): # arranca todos lo threads al mismo tiempo
+for i in range(5): # arranca todos lo threads al mismo tiempo
     #crear un thread
     threadX=threading.Thread(target=dormir, args=[1], name='hilo')
     threadX.start()
