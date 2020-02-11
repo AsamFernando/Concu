@@ -8,13 +8,12 @@ var1=1
 lock= threading.Lock()
 
 def dormir():
-    time.sleep(3)
+    time.sleep(1)
 
 def sumarUno():
     global var1
     global lock
     try:
-        lock.acquire()
         var1+=1
     finally:
         lock.release()
@@ -22,8 +21,8 @@ def sumarUno():
 def multiplicarPorDos():
     global var1
     global lock
+    lock.acquire()
     try:
-        lock.acquire()
         var1*=2
     finally:
         lock.release()
@@ -31,27 +30,32 @@ def multiplicarPorDos():
 def dividirPorDos():
     global var1
     global lock
+    lock.acquire()
     try:
-        lock.acquire()
         var1/=2
     finally:
         lock.release()
 
-#dormir()
-#dormir()
+lock.acquire()
 
-#t2.start()
-#t1.start()
+t1=threading.Thread(target=sumarUno)
+t2=threading.Thread(target=multiplicarPorDos)
 
+t2.start()
+t1.start()
+
+#t2.join()
+
+logging.info(f'el resultado es: {var1}')
 
 #t1.join()
 #t2.join()
 
-def logResultado():
+'''def logResultado():
+    lock.acquire()
     try:
-        lock.acquire()
         logging.info(f'el resultado es: {var1}')
     finally:
-        lock.release()
+        lock.release()'''
 
 
