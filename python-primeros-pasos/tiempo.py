@@ -12,4 +12,5 @@ class Contador:
     logging.info(f'Pasaron {round(self.fin - self.inicio, 2)} segundos')
 
 # probando la superRama
+# probando la superRama
 # el bananero soy ioo!!
