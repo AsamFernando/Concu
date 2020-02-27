@@ -10,3 +10,5 @@ class Contador:
 
   def imprimir(self):
     logging.info(f'Pasaron {round(self.fin - self.inicio, 2)} segundos')
+
+# el bananero soy ioo!!
